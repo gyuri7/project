@@ -1,6 +1,6 @@
 1. 회원 MEMBER
  MEMBER_NO 회원번호 PK
- MEMBER_TYPE 회원타입(1:일반, 2:강사, 3:기업) 
+ MEMBER_CLASS 회원타입(1:일반, 2:강사, 3:기업) 
  MEMBER_ID 회원아이디
  MEMBER_PWD 회원비밀번호
  MEMBER_EMAIL 회원이메일
