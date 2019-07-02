@@ -110,7 +110,7 @@ PAYMENT_DATE 결제날짜
  EXAMINEE_ID 임시아이디 
  EXAMINEE_PWD 임시비밀번호
 
-14. 채용테스트관련 응시자가 낸 답안에 관련한 테이블 EXAMINEE_ANSWER
+14. 채용테스트관련 응시자가 낸 답안에 관련한 테이블 ANSWER
  ANSWER_NO 답안번호 PK
  TEST_NO 시험번호
  EXAMINEE_NO 응시자번호
@@ -133,4 +133,4 @@ PAYMENT_DATE 결제날짜
  BOARD_WRITE_DATE 게시글등록일자
  BOARD_WRITE_HIT 게시글조회수
  BOARD_WRITE_ATTACHMENT 게시글첨부파일
- BOARD_STAR_POINT 게시글별점 
+ BOARD_WRITE_STAR_POINT 게시글별점 
