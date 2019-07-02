@@ -59,7 +59,7 @@
  LECTURE_NO 강의번호
  APPLY_LECTURE_DATE 수강신청일자
 
-7. 결제정보 PAYMENT
+7. 결제 PAYMENT
  PAYMENT_NO 결제번호
  MEMBER_NO 회원번호(일반회원)
  PAYMENT_AMOUNT 결제금액
