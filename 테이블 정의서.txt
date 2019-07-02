@@ -104,11 +104,11 @@ PAYMENT_DATE 결제날짜
  TEST_NO 시험번호 PK
  QUESTION_NO 문제번호 FK
  
-13. 채용테스트관련 응시자회원테이블 CANDIDATE
- CANDIDATE_NO 응시자번호 PK
+13. 채용테스트관련 응시자회원테이블 EXAMINEE
+ EXAMINEE_NO 응시자번호 PK
  TEST_NO 시험번호 FK
- CANDIDATE_ID 임시아이디 
- CANDIDATE_PWD 임시비밀번호
+ EXAMINEE_ID 임시아이디 
+ EXAMINEE_PWD 임시비밀번호
 
 14. 채용테스트관련 응시자가 낸 답안에 관련한 테이블 EXAMINEE_ANSWER
  ANSWER_NO 답안번호 PK
