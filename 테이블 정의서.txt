@@ -1,27 +1,18 @@
-1. 코드관련 CODE
- CODE_CLASS_NO 코드분류번호
- CODE_CLASS_NAME 코드분류명
- CODE_DETAIL_NO 코드세부번호
- CODE_DETAIL_NAME 코드세부명
-
-2. 회원 member
+1. 회원 MEMBER
  MEMBER_NO 회원번호 PK
- CODE_CLASS_NO 코드분류번호 FK
- CODE_DETAIL_NO 코드세부번호 FK
- member_id 회원아이디
- member_pwd 회원비밀번호
+ MEMBER_TYPE 회원타입(1:일반, 2:강사, 3:기업) 
+ MEMBER_ID 회원아이디
+ MEMBER_PWD 회원비밀번호
  MEMBER_EMAIL 회원이메일
  MEMBER_NAME 회원이름
  MEMBER_TEL 회원전화번호
- JOIN_DATE 가입일자
- LEAVE_DATE 탈퇴일자
+ JOIN_DATE 회원가입일자
+ LEAVE_DATE 회원탈퇴일자
 
-3. 강사 teacher
+2. 강사 TEACHER
  MEMBER_NO 회원번호(강사) PK
- CODE_CLASS_NO 코드분류번호 FK
- CODE_DETAIL_NO 코드세부번호 FK
+ TEACHER_DEVEL_CAREER 강사개발경력 
  TEACHER_IMAGE 강사사진
- TEACHER_DEVEL_CAREER 강사개발경력
  TEACHER_EDUCATION 강사학력
  TEACHER_LECTURE_CAREER 강사강의경력
  TEACHER_POINT 강사평점
@@ -33,101 +24,106 @@
  APPLY_DATE 신청일자
  APPLY_STATUS 승인상태
 
-4. 기업 COMPANY
- COMPANY_NO 기업번호
- COMPANY_ID 기업아이디
- COMPANY_PWD 기업비밀번호
- COMPANY_NAME 기업이름
+3. 기업 COMPANY
+ MEMBER_NO 회원번호
+ COMPANY_NAME 기업명
  COMPANY_LICENSE_NO 사업자등록번호
+ EMPLOYEE_NAME 담당자명
+ EMPLOYEE_EMAIL 담당자 이메일
+ COMPANY_LICENSE_ATTACHMENT 사업자등록증
  COMPANY_EMAIL 기업이메일 
+
+4. 과목(대분류) SUBJECT
+ SUBJECT_NO 과목번호
+ SUBJECT_NAME 과목명
 
 5.  강의 LECTURE
  LECTURE_NO 강의번호
- MEMBER_NO 회원번호
- CODE_CLASS_NO 코드분류번호 FK
- CODE_DETAIL_NO 코드세부번호 FK
- LECTURE_NAME 강의이름
+ MEMBER_NO 회원번호(강사)
+ SUBJECT_NO 과목번호
+ LECTURE_NAME 강의명
  LECTURE_RECOMMENDATION 강의추천수
  LECTURE_POINT 강의평점수
  LECTURE_HIT 강의조회수
  LECTURE_IMAGE 강의이미지
- LECTURE_FEE 강의수강료
+ LECTURE_PAYMENT 강의수강료
  LECTURE_INTRODUCTION 강의소개
  LECTURE_DIFFICULTY 강의난이도
  LECTURE_PERIOD 강의수강시간
- LECTURE_BOOK 강의교재명
- LECTURE_BOOK_PUBLISHER 강의교재출판사 
+ LECTURE_BOOK 참고교재
+ LECTURE_DATE 강의등록일
 
 6. 수강신청 APPLY_LECTURE
  APPLY_LECTURE_NO 수강신청번호
- MEMBER_NO 회원번호
- LECTURE_NO 강의코드
+ MEMBER_NO 회원번호(일반회원)
+ LECTURE_NO 강의번호
  APPLY_LECTURE_DATE 수강신청일자
 
 7. 결제정보 PAYMENT
- PAYMENT_NO 결제코드
- MEMBER_NO 회원번호
- PAYMENT_DATE 결제날짜 
+ PAYMENT_NO 결제번호
+ MEMBER_NO 회원번호(일반회원)
+ PAYMENT_AMOUNT 결제금액
  PAYMENT_WAY 결제방식
  PAYMENT_STATUS 결제상태
  LECTURE_NAME 강의이름
+PAYMENT_DATE 결제날짜 
 
-8. 채용테스트관련 강사가 문제를 출제하는 테이블 SET_QUESTION
- TEST_QUESTION_NO 문제번호 PK
- SUBJECT_CODE 과목코드
- QUESTION_NO 문항번호
- QUESTION_CONTENTS 문항내용
+8. 문제출제 - 중분류
+ SUBJECT_MIDDLE_NO 중분류번호
+ SUBJECT_NO 과목번호
+ SUBJECT_MIDDLE_NAME 중분류명
  MEMBER_NO 회원번호(강사)
- SET_QUESTION_DATE 등록일자
- SET_QUESTION_ANSWER 정답
- SET_QUESTION_EXPLAIN 해설
- 
-9. 문제보기 EXAMPLE 
- TEST_QUESTION_NO 문제번호 
- QUESTION_NO 문항번호
- EXAMPLE_NO 보기번호
- EXAMPLE_CONTENTS 보기내용
+ SUBJECT_MIDDLE_DATE 중분류등록일자
 
-10.채용테스트관련 기업회원이 시험을 의뢰하는 테이블 TEST_REQUEST
+9. 문제 QUESTION 
+ QUESTION_NO 문제번호 
+ SUBJECT_NO 과목번호
+ SUBJECT_MIDDLE_NO 중분류번호
+ QUESTION 문제
+ QUESTION_ANSWER 문제정답
+ QUESTION_EXPLAIN 문제해설
+
+10. 보기 EXAMPLE
+ EXAMPLE_NO 보기번호
+ QUESTION_NO 문제번호
+ EXAMPLE_SEQUENCE 보기넘버링
+ EXAMPLE 보기
+
+11.채용테스트관련 기업회원이 시험을 의뢰하는 테이블 TEST_REQUEST
  TEST_NO 시험번호 PK
- COMPANY_NO 기업번호 FK
+ MEMBER_NO 회원번호(기업) FK
  QUESTION_COUNT 문항수
  TEST_DATE 시험일자
  TEST_TIME 시험시간
- SUBJECT_CODE 과목코드
+ SUBJECT_CODE 과목번호
  TEST_REQUEST_STATUS 의뢰진행상태
  TEST_REQUEST_DATE 의뢰일 
  TEST_REQUEST_ETC 기타사항
 
-
-11. 채용테스트관련 응시자가 응시할 시험문제에 관한 테이블 TEST_QUESTION
+12. 채용테스트관련 응시자가 응시할 시험문제에 관한 테이블 TEST_QUESTION
  TEST_NO 시험번호 PK
- TEST_QUESTION_NO 문제번호 FK
- QUESTION_NO 문항번호 FK
- QUESTION_CONTENTS 문항내용 FK
-
-
-12. 채용테스트관련 응시자회원테이블 CANDIDATE
+ QUESTION_NO 문제번호 FK
+ 
+13. 채용테스트관련 응시자회원테이블 CANDIDATE
  CANDIDATE_NO 응시자번호 PK
  TEST_NO 시험번호 FK
- QUESTION_NO 문항번호 FK
  CANDIDATE_ID 임시아이디 
  CANDIDATE_PWD 임시비밀번호
 
-13. 채용테스트관련 응시자가 낸 답안에 관련한 테이블 CANDIDATE_ANSWER
- CANDIDATE_ANSWER_NO 답안번호 PK
- CANDIDATE_NO 응시자번호 FK
- QUESTION_NO 문항번호 FK
+14. 채용테스트관련 응시자가 낸 답안에 관련한 테이블 EXAMINEE_ANSWER
+ ANSWER_NO 답안번호 PK
  TEST_NO 시험번호
- CANDIDATE_ANSWER_YN 정오
- 
+ EXAMINEE_NO 응시자번호
+ QUESTION_NO문제번호
+ EXAMINEE_ANSWER 제출답안
+ ANSWER_YN 정오
 
-14. 게시판 BOARD
- BOARD_NO 게시판번호
+15. 게시판 BOARD
+ BOARD_NO 게시판번호S
  BOARD_NAME 게시판이름
  LECTURE_NO 강의번호
 
-15. 게시글 BOARD_WRITE
+16. 게시글 BOARD_WRITE
  BOARD_WRITE_NO 게시판글번호
  BOARD_NO 게시판구분번호
  MEMBER_ID 회원아이디
@@ -136,13 +132,5 @@
  BOARD_WRITE_CONTENTS 게시판글본문
  BOARD_WRITE_DATE 게시판등록일자
  BOARD_HIT 게시판조회수
- 게시판첨부파일
- 게시판별점 
- 
-16. 검색 SEARCH
- SEARCH_WORD 검색어
- SEARCH_DATE 검색일자
- SEARCH_NO 검색번호
- SEARCH_COUNT 검색횟수
-
-sssssss
+ BOARD_ATTACHMENT 게시판첨부파일
+ BOARD_STAR_POINT 게시판별점 
