@@ -119,13 +119,13 @@ PAYMENT_DATE 결제날짜
  ANSWER_YN 정오
 
 15. 게시판 BOARD
- BOARD_NO 게시판번호S
+ BOARD_NO 게시판번호
  BOARD_NAME 게시판이름
  LECTURE_NO 강의번호
 
 16. 게시글 BOARD_WRITE
  BOARD_WRITE_NO 게시판글번호
- BOARD_NO 게시판구분번호
+ BOARD_NO 게시판번호
  MEMBER_ID 회원아이디
  BOARD_LEVEL 게시판답글레벨
  BOARD_WRITE_TITLE 게시판글제목
